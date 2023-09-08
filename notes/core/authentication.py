@@ -7,7 +7,7 @@ from notes.settings import SECRET_KEY
 def create_access_token(id):
     payload = {
         "_id": str(id),
-        "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=43200),
+        "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=1),
         "iat": datetime.datetime.utcnow(),
     }
     return jwt.encode(payload, SECRET_KEY, algorithm='HS256')

@@ -35,7 +35,7 @@ class CreateUser(APIView):
     def post(self, request):
         data = request.data
         print("data", data)
-        if data["first_name"] != "" and data["last_name"] != "" and data["email"] != "":
+        if data["first_name"] != "" and data["first_name"] != None and data["last_name"] != "" and data["last_name"] != None and data["email"] != "":
             existingUser = db.users.find_one({"email" : data["email"]})
             if not existingUser:
                 obj = {
